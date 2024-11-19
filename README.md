@@ -1,22 +1,21 @@
-```markdown
-# DRL-Drone-Tracker
+# DRL-Drone-Tracker  
 
 This repository contains the implementation of a drone active tracking system based on Deep Reinforcement Learning (DRL). The system enables a drone to autonomously track a moving target using visual input.
 
----
+--- 
 
-## Configuration
+## Set up the Environment          
 
 The code has been tested with **Python 3.8** on a **Windows** host machine. To set up the environment, follow these steps:
 
 ### **Install the Requirements**
-Run the following commands in your terminal or command prompt:
+Run the following commands in your terminal or command prompt:  
+```markdown
 
-```bash
 # Install PyTorch with CUDA 11.3 support
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
 
-# Upgrade setuptools and install wheel
+# Upgrade setuptools and install wheel 
 pip install -U setuptools==65.5.0
 python -m pip install --upgrade pip wheel==0.38.4 setuptools==65.5.1
 
@@ -43,17 +42,17 @@ The **state space** defines the relative state of the target with respect to the
 - **Relative Velocity**: The difference in velocity between the target and the tracker.
 - **Relative Acceleration**: The difference in acceleration between the target and the tracker.
 
-This representation is used internally by the system to model the dynamics of the tracking problem.
-
 ---
 
 ### **Observation Space**
 The **observation space** consists of inputs provided to the reinforcement learning policy for decision-making:
 1. **Visual Inputs**:
+   - The target's relative state with respect to the tracker (used when `obs_type` is `state_vector`)
    - RGB images (if `obs_type` is set to `RGB`).
    - Event-based images (if `obs_type` is set to `event_img`).
-2. **System State**:
-   - The target's relative state with respect to the tracker (used when `obs_type` is `state_vector` or `Event_rep_vector`).
+   - Event-based representation vector (`Event_rep_vector`).
+3. **System State**:
+   - The target's relative state with respect to the tracker.
 
 The size and format of the observations depend on the configuration:
 - **Vector Observations**:
@@ -100,24 +99,21 @@ The size and format of the observations depend on the configuration:
 
 ### **Action Space**
 - **action_dim**: The action is a 4D vector representing:
-  1. Horizontal velocity (\(V_x\)).
-  2. Vertical velocity (\(V_z\)).
-  3. Yaw rotation (\(yaw\)).
-  4. Thrust adjustment (scaled by 10).
-- **action_limit**: Each action element is clipped within [-4, 4].
+  1. Pitch, Rolle, Yaw rotations.
+  2. Thrust force.
+- **action_limit**: Each action element is clipped within [-4, 4] and the thrust is adjusted later to simulate the real force value of the drone.
 
 ---
 
 ### **Reward Weights**
 The reward function is configured to penalize or reward specific behaviors:
 - **alpha (0.4)**: Penalizes high velocity.
-- **beta (0.4)**: Penalizes when the target is out of the field of view (FOV).
+- **beta (0)**: Penalizes when the target is out of the field of view (FOV).
 - **gamma (0)**: Penalizes high acceleration.
 - **sigma (0)**: Additional penalty for being out of FOV.
 
 Other settings:
-- **random_pose_init**: Boolean flag for initializing the tracker at a random pose (`false` by default).
-
+- **random_pose_init**: Boolean flag for initializing the target at a random pose (`false` by default).
 ---
 
 ## Simulation Setup
@@ -126,14 +122,47 @@ Before running the code, make sure to **install AirSim** and set up the environm
 
 - **AirSim Installation Guide**: [https://github.com/microsoft/AirSim](https://github.com/microsoft/AirSim)
 
-Once AirSim is installed, set the initial positions for the tracker and the target as per your experimental setup.
+Once AirSim is installed, follow these additional steps:
+
+### Setting the `settings.json` File
+
+1. Create a `settings.json` file in the appropriate directory on your local machine (usually under `Documents/AirSim/`).
+2. Add the following configuration to the file, adjusting parameters as needed:
+
+```json
+{
+  "SettingsVersion": 1.2,
+  "SimMode": "Multirotor",
+  "PhysicsEngineName": "ExternalPhysicsEngine",
+        }
+
+
+```
+
+- Restart AirSim to apply the changes.
 
 ---
 
-## Notes
-- **State Space**: The state space represents the target's relative state (position, velocity, and acceleration) with respect to the tracker. These factors are critical for modeling the drone's tracking behavior and allowing the RL agent to make informed decisions.
-- **Observation Space**: The observation space is composed of visual inputs (RGB or event-based images) and the real-time system state, providing the policy network with the necessary information to predict actions.
-- **Action Space**: The action space is a 4D vector comprising velocity commands (horizontal and vertical), yaw adjustments, and thrust. This allows for fine-grained control over the drone's movements during tracking tasks.
-- **Reward Weights**: Customizable weights are used to influence the reward system, ensuring the drone prioritizes staying within a certain distance from the target and avoids excessive speed or loss of target.
+## Running the Code
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AlaSouissi5/DRL-Drone-Tracking.git
+   cd DRL-Drone-Tracking
+   ```
+
+2. Install dependencies as outlined in the **Configuration** section.
+
+3. Ensure AirSim is installed and properly configured with the `settings.json` file.
+
+4. Train the model with the parametre `eval_mode` set to `False`:
+   ```bash
+   python train.py
+   ```
+
+5. Evaluate the model with the parametre `eval_mode` set to `True`:
+   ```bash
+   python train.py
+   ```
 
 ---
