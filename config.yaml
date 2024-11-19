@@ -1,0 +1,47 @@
+settings:
+
+  #--------------------TRAINING SETTINGS
+  num_cpu: 7
+  policy: Resnet_DenseMlpPolicy  # {Resnet_DenseMlpPolicy , DenseMlpPolicy }
+  n_timesteps: 50000
+  eval_episodes: 6
+  eval_mode: true
+
+
+  #--------------------WANDB
+  WandB: false
+  WandB_project: DRL-Tracker
+  WandB_entity: ala-souissi20
+  WandB_API_key: 47355008e57488c562feebd51ec31f6cdc62d9ca
+  render: true
+  debug: false # true to see the event camera encoder decoder output
+
+  #--------------------RL ENVIRONMENT
+  dt: 0.005 # 0.05/0.1
+  episode_time: 40
+
+  #relative optimal distance
+  optimal_x:  0.2 #m -> 2 in arisim
+  max_x_dist : 0.35
+  min_x_dist :  0.1
+  # actor observation space
+  #types :
+  obs_type :  event_img #  {RGB, event_img,  state_vector,  Event_rep_vector}
+  vect_size : 3 # for obs vectors {state_vector = 3 , Event_rep_vector = 8}
+  stack_length: 3  # { for state_vector = 15 , for the rest = 3 }
+  #for image based obs
+  screen_height : 250
+  screen_width : 250
+
+  # action space
+  # action : 4D vector wih values in [-action_limit,action_limit]
+  # the first 3 elements are clipped in [-4,4] and the last element is * 10
+  action_dim : 4 # Vx Vz and yaw
+  action_limit : 4
+
+  # reward weights
+  random_pose_init : false
+  alpha: 0.4 # 0.4 # high velocity penalty
+  beta: 0.4 #  0.4 # out of FOV penalty
+  gamma: 0 # high velocity penalty
+  segma: 0 # out of FOV penalty

@@ -1,0 +1,201 @@
+{
+    "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/main/docs/settings.md",
+    "SettingsVersion": 1.2,
+    "SimMode": "Multirotor",
+    "PhysicsEngineName": "ExternalPhysicsEngine",
+    "PawnPaths": {
+        "TargetPawn": {
+            "PawnBP": "Class'/AirSim/Blueprints/BP_FlyingPawn_Target.BP_FlyingPawn_Target_C'"
+        }
+    },
+    "Vehicles": {
+        "Tracker_1": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "EnableTrace": false,
+            "X": 0,
+            "Y": 0,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Target_1": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "PawnPath": "TargetPawn",
+            "EnableTrace": false,
+            "X": 2.0,
+            "Y": 0,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Tracker_2": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "EnableTrace": false,
+            "X": 0,
+            "Y": 65,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Target_2": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "PawnPath": "TargetPawn",
+            "EnableTrace": false,
+            "X": 2.0,
+            "Y": 65,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Tracker_3": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "EnableTrace": false,
+            "X": 0,
+            "Y": 130,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Target_3": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "PawnPath": "TargetPawn",
+            "EnableTrace": false,
+            "X": 2.0,
+            "Y": 130,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Tracker_4": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "EnableTrace": false,
+            "X": 0,
+            "Y": 195,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Target_4": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "PawnPath": "TargetPawn",
+            "EnableTrace": false,
+            "X": 2.0,
+            "Y": 195,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Tracker_5": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "EnableTrace": false,
+            "X": 0,
+            "Y": 260,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Target_5": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "PawnPath": "TargetPawn",
+            "EnableTrace": false,
+            "X": 2.0,
+            "Y": 260,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Tracker_6": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "EnableTrace": false,
+            "X": 0,
+            "Y": 325,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Target_6": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "PawnPath": "TargetPawn",
+            "EnableTrace": false,
+            "X": 2.0,
+            "Y": 325,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Tracker_7": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "EnableTrace": false,
+            "X": 0,
+            "Y": 390,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        },
+        "Target_7": {
+            "VehicleType": "SimpleFlight",
+            "DefaultVehicleState": "Disarmed",
+            "PawnPath": "TargetPawn",
+            "EnableTrace": false,
+            "X": 2.0,
+            "Y": 390,
+            "Z": 0,
+            "Pitch": 0,
+            "Roll": 0,
+            "Yaw": 0
+        }
+    },
+    "SubWindows": [
+        {
+            "WindowID": 0,
+            "CameraName": "0",
+            "ImageType": 0,
+            "VehicleName": "Tracker_1",
+            "Visible": true,
+            "External": false
+        }
+    ],
+    "ClockSpeed": 1,
+    "CameraDefaults": {
+        "CaptureSettings": [
+            {
+                "ImageType": 0,
+                "TargetGamma": 1.2,
+                "Width": 500,
+                "Height": 250,
+                "FOV_Degrees": 90,
+                "AutoExposureSpeed": 100,
+                "AutoExposureBias": 0,
+                "AutoExposureMaxBrightness": 0.25,
+                "AutoExposureMinBrightness": 0.02,
+                "MotionBlurAmount": 0
+            }
+        ]
+    }
+}

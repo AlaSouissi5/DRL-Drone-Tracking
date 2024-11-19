@@ -1,0 +1,39 @@
+def get_dim(encoder_type, feature_dim):
+    if encoder_type == "pixelHybrid":
+        fff_dim = feature_dim * 2
+    elif encoder_type == "pixelHybridActionMask":
+        fff_dim = feature_dim * 3
+    elif encoder_type == "pixelHybridActionMaskV2":
+        fff_dim = feature_dim * 3
+    elif encoder_type == "pixelHybridActionMaskV3":
+        fff_dim = feature_dim
+    elif encoder_type == "pixelHybridActionMaskV4":
+        fff_dim = feature_dim
+    elif encoder_type == "pixelHybridActionMaskV5":
+        fff_dim = feature_dim
+    elif encoder_type == "pixelMultiLevelHybrid":
+        fff_dim = feature_dim*2
+    elif encoder_type == "pixelWAE":
+        fff_dim = feature_dim*1
+    elif encoder_type == "pixelConNeo":
+        fff_dim = feature_dim * 2
+    elif encoder_type == "pixelCon":
+        fff_dim = feature_dim * 1
+    elif encoder_type == "pixelConV51":
+        fff_dim = feature_dim * 1
+    elif encoder_type == "pixelCat" or encoder_type == "pixelCatSep" or encoder_type == "pixelCrossFusion":
+        fff_dim = feature_dim*2
+    else:
+        fff_dim = feature_dim
+    return fff_dim
+
+Obs space
+    RGB frame :
+    shape_rgb = (3, 256, 768)
+    space_rgb = gym.spaces.Box(low=0, high=1, shape=shape_rgb, dtype=np.float32)
+    DVS-Frame :
+    shape_dvs_frame = (2, 256, 768)
+    space_dvs_frame = gym.spaces.Box(low=0, high=1, shape=shape_dvs_frame, dtype=np.float32)
+    DVS-Stream
+    shape_dvs_stream = (4,)
+    space_dvs_stream = gym.spaces.Box(low=0, high=1, shape=shape_dvs_stream, dtype=np.float32)
