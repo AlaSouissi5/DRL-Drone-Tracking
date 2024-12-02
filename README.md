@@ -2,6 +2,21 @@
 
 This repository contains the implementation of a drone active tracking system based on Deep Reinforcement Learning (DRL). The system enables a drone to autonomously track a moving target using visual input.
 
+## Article citation
+The provided code is based on the method described in the following article :
+
+```latex
+@misc{souissi2024leveragingeventstreamsdeep,
+      title={Leveraging Event Streams with Deep Reinforcement Learning for End-to-End UAV Tracking}, 
+      author={Ala Souissi and Hajer Fradi and Panagiotis Papadakis},
+      year={2024},
+      eprint={2410.14685},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2410.14685}, 
+}
+  ```
+
 --- 
 
 ## Set up the Environment          
