@@ -10,9 +10,9 @@ settings:
 
   #--------------------WANDB
   WandB: false
-  WandB_project: DRL-Tracker
-  WandB_entity: ala-souissi20
-  WandB_API_key: 47355008e57488c562feebd51ec31f6cdc62d9ca
+  WandB_project: 
+  WandB_entity:  
+  WandB_API_key: 
   render: true
   debug: false # true to see the event camera encoder decoder output
 
