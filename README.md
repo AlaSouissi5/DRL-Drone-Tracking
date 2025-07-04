@@ -7,13 +7,9 @@ The provided code is based on the method described in the following article :
 
 ```latex
 @misc{souissi2024leveragingeventstreamsdeep,
-      title={Leveraging Event Streams with Deep Reinforcement Learning for End-to-End UAV Tracking}, 
+      title={Towards Event-Driven, End-to-End UAV Tracking using Deep Reinforcement Learning}, 
       author={Ala Souissi and Hajer Fradi and Panagiotis Papadakis},
-      year={2024},
-      eprint={2410.14685},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2410.14685}, 
+      year={2025}
 }
   ```
 
